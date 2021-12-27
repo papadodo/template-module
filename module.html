@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <script src="./src/index.js" defer></script>
+    <script src="./src/support.js" defer></script> -->
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1st Tab 모듈 입니다. -->
+    <nav class="tabs depth1">
+        <input type="radio" name="tabs-depth1" id="general-tab" data-tab-target="#general-content" checked>
+        <label class="tab" for="general-tab">General</label>
+        <input type="radio" name="tabs-depth1" id="layout-tab" data-tab-target="#layout-content">
+        <label class="tab" for="layout-tab">Layout</label>
+        <input type="radio" name="tabs-depth1" id="model-tab" data-tab-target="#model-content">
+        <label class="tab" for="model-tab">Model</label>
+        <input type="radio" name="tabs-depth1" id="test-tab" data-tab-target="#test-content">
+        <label class="tab" for="test-tab">test</label>
+    </nav>
+<!-- 구조는 main > section > content > items 구조 입니다. -->
+    <!-- Section 타이틀 입니다.  -->
+    <div class="title">
+        <span class="spin"><img src="img/ico_spin.svg"></span>
+        <span class="title_text">Title Area</span>
+    </div>        
+
+    <!-- 큰 이미지 입니다. -->
+    <div class="items">
+        <img src="img/PSC_preview.png" alt="">
+    </div>
+
+    <!-- 1/2 분할 items 왼쪽 Label + edit box 오른쪽 Label + edit box -->
+    <div class="items">
+        <ul class="half left">
+            <li class="eachLine">
+                <label for="general-templateName">1/2 Left Label+edit box</label>
+                <input type="text" id="general-templateName" name="info" value="PSC Beam">
+            </li>
+        </ul>
+        <ul class="half right">
+            <li class="eachLine">
+                <label for="general-templateType">1/2 Right Label+edit box</label>
+                <input type="text" id="general-templateType" name="info" value="Assembly Unit" readonly>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 1/2 분할 items 왼쪽 Label + drop list, 오른쪽 edit box -->
+    <div class="items">
+        <ul class="half left">
+            <li class="eachLine">
+                <label for="layout-numberOfSpans">1/2 Left Label+drop list</label>
+                <select name="numSpans" id="layout-numberOfSpans">
+                    <option label="1" value=".numSpans1"></option>
+                    <option label="2" value=".numSpans2"></option>
+                    <option label="3" value=".numSpans3"></option>
+                    <option label="4" value=".numSpans4"></option>
+                    <option label="5" value=".numSpans5" selected></option>
+                </select>
+            </li>
+        </ul>
+        <ul class="half right">
+            <li class="eachLine">
+                <label for="layout-totalSpanLength">1/2 Right Label+edit box</label>
+                <input type="text" id="layout-totalSpanLength" name="length" value="0.00000 m" readonly>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 1/2 분할 왼쪽 Label+edit box, 오른쪽 Label+drop list -->
+    <div class="items">
+        <ul class="half left">
+            <li class="eachLine">
+                <label for="model-girderAlignment">Girder Alignment</label>
+                <input type="text" class="mUnit" id="model-girderAlignment" value="0.00000 m">
+            </li>
+        </ul>
+        <ul class="half right">
+            <li class="eachLine">
+                <label for="model-girderNumber">Girder Number</label>
+                <select name="girder_number" id="model-girderNumber">
+                    <option label="1 EA" value="1"></option>
+                    <option label="2 EA" value="2"></option>
+                    <option label="3 EA" value="3"></option>
+                    <option label="4 EA" value="4"></option>
+                    <option label="5 EA" value="5"></option>
+                    <option label="6 EA" value="6"></option>
+                    <option label="7 EA" value="7" selected></option>
+                    <option label="8 EA" value="8"></option>
+                    <option label="9 EA" value="9"></option>
+                    <option label="10 EA" value="10"></option>
+                </select>
+            </li>
+        </ul>
+    </div>
+
+    
+    <!-- 1/2 분할 - 왼쪽 - label + drop list -->
+    <div class="items">
+        <ul class="half left">
+            <li class="eachLine">
+                <label for="layout-numSpans1Support2SupportName">1/2 Left Label+drop list</label>
+                <select id="layout-numSpans1Support2SupportName">
+                    <option label="A1" value="A1"></option>
+                    <option label="A2" value="A2" selected></option>
+                </select>
+            </li>
+        </ul>
+        <ul class="half right">
+            <li class="eachLine"></li>
+        </ul>
+    </div>
+
+    
+    
+<!-- 1/1 오른쪽 정렬 Label + drop list + icon button -->
+<div class="items flex-end">
+    <ul>
+        <li class="eachLine">
+            <label for="layout-copyDataSupports">1/1 Right Label+Drop list + icon button</label>
+            <select id="layout-copyDataSupports">
+                <option label="All" value="All"></option>
+                <option label="Support 2" value="Support 2"></option>
+                <option label="Support 3" value="Support 3"></option>
+            </select>
+            <button class="add" id="layout-copySupports">+</button>
+        </li>
+    </ul>
+</div>  
+<div class="items">
+<ul class="half left s-width">
+    <li class="eachLine">
+        <label for="model-girderSpacing">Girder Spacing</label>
+        <input type="text" class="mUnit" id="model-girderSpacing" value="2.50000 m">
+        <button class="add" id="girderSpacingApply">+</button>
+    </li>
+</ul>
+</div>
+
+    <!-- support 토글버튼 -->
+    <div class="numSpans1 supports content">
+        <section class="notitle support">
+            <div class="toggle_btn" id="numSpans1SupportTabs">
+                <input type="radio" name="numSpans1SupportTabs" id="layout-numSpans1Support1Tab" data-tab-target="#layout-numSpans1Support1Content" checked>
+                <label for="layout-numSpans1Support1Tab">Support 1</label>
+                <input type="radio" name="numSpans1SupportTabs" id="layout-numSpans1Support2Tab" data-tab-target="#layout-numSpans1Support2Content">
+                <label for="layout-numSpans1Support2Tab">Support 2</label>
+                <input type="radio" name="numSpans1SupportTabs" id="layout-numSpans1Support2Tab" data-tab-target="#layout-numSpans1Support2Content">
+                <label for="layout-numSpans1Support2Tab">Support 3</label>
+            </div>      
+        </section> 
+    </div>
+
+</body>
